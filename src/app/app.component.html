@@ -1,0 +1,714 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+
+
+
+<!-- * * * * * * * * * * * * * *<link href="app.component.scss" > * * * * * * * * * * * * * * * * * -->
+
+
+
+<style>
+
+
+
+
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 32px auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: 100vh;
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .menu-content {
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}.collapsible-menu {
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px;
+    border-bottom: 3px solid #CDE700;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}.collapsible-menu a {
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}/* Toggle Effect */input:checked ~ label {
+    background-image: url(close.png);
+}input:checked ~ .menu-content {
+    max-height: 100%;
+}/*Icons made by https://www.flaticon.com/authors/cole-bemis from www.flaticon.com/ */
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="assets/1000.gif"
+  />
+  <span>RESTAURANT MENU</span>
+    <div class="spacer"></div>
+
+</div>
+
+<div class="content" role="main">
+<!-- Highlight Card -->
+
+
+  <div class="card highlight-card card-small" align="left">
+
+  </div>
+
+<div class="collapsible-menu">
+            <input type="checkbox" id="menu">
+            <label for="menu">Salad</label>
+            <div class="menu-content">
+                <ul>
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Santa Fe</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                            <p>You might also want: </p>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Dressing</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Blue Cheese</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Ranch</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Greek</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                            <p>You might also want: </p>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Dressing</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Blue Cheese</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Ranch</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Asian</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                            <p>You might also want: </p>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Dressing</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Blue Cheese</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Ranch</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                </ul>
+            </div>
+        </div>
+  <div class="card highlight-card card-small" align="left">
+
+
+</div>
+<div class="collapsible-menu">
+            <input type="checkbox" id="menu">
+            <label for="menu">Entree</label>
+            <div class="menu-content">
+                <ul>
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Steak</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Blue Cheese</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Ranch</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Salmon</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Blue Cheese</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Ranch</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Rice</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                </ul>
+            </div>
+        </div>
+<div class="card highlight-card card-small" align="left">
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("hide");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</div>
+
+<div class="container">
+
+<div class="collapsible-menu">
+            <input type="checkbox" id="menu">
+            <label for="menu">Soup</label>
+            <div class="menu-content">
+                <ul>
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Minestrone</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                            <p>You might also want: </p>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Breadsticks</li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+
+
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Hot and Sour</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                    <p>You might also want: </p>
+
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Breadsticks</li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+
+
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                    <li><div class="collapsible-menu">
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Miso</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><div class="collapsible-menu">
+                    <p>You might also want: </p>
+
+                    <input type="checkbox" id="menu">
+                    <label for="menu">Bread</label>
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Breadsticks</li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+                            <li><div class="collapsible-menu">
+
+                    <div class="menu-content">
+                        <ul>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Italian</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Flat</li>
+                            <li><a href="#"></a><input type="checkbox" id="menu">Sour Dough</li>
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+
+                        </ul>
+                    </div>
+                    </div></li>
+
+                </ul>
+            </div>
+        </div>
+          <div class="card highlight-card card-small" align="left">
+<div class="row">
+   <input type="submit" value="Submit">
+  </div>
+</div>
+<a href="https://www.linkedin.com/in/kevin-kinyua/">
+<p>@Kevin Wangome Kinyua </p>
+</a>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<router-outlet></router-outlet>
